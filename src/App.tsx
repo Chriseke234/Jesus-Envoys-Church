@@ -9,6 +9,7 @@ import Blog from './pages/Blog';
 import LiveStream from './pages/LiveStream';
 import Contact from './pages/Contact';
 import MembersPortal from './pages/MembersPortal';
+import Give from './pages/Give';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="live" element={<LiveStream />} />
         <Route path="contact" element={<Contact />} />
         <Route path="portal" element={<MembersPortal />} />
+        <Route path="give" element={<Give />} />
       </Route>
     </Routes>
   );

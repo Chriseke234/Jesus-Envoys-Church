@@ -1,117 +1,235 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Calendar, Users, Heart } from 'lucide-react';
+import { ArrowRight, Play, Calendar, Users, Heart, Shield, Zap, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '../components/ui/Button';
+import { Card, CardContent } from '../components/ui/Card';
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image & Overlay */}
-        <div 
+      <section className="relative h-[90vh] md:h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image & Overlay with Parallax effect simulation */}
+        <motion.div 
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, ease: "easeOut" }}
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?q=80&w=2000&auto=format&fit=crop)' }}
         />
-        <div className="absolute inset-0 z-10 bg-black/60 dark:bg-black/80" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/40 to-background" />
         
         {/* Hero Content */}
         <div className="container mx-auto px-4 md:px-6 relative z-20 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading text-white mb-6"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary-foreground text-xs font-bold uppercase tracking-widest mb-8"
           >
-            Empowered to <span className="text-primary">Transform</span><br/> Your World
+            <Star size={14} className="fill-current" /> Welcome to Jesus Envoys Church
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading text-white mb-8 tracking-tighter"
+          >
+            Empowered to <span className="text-primary italic">Transform</span><br/> Your World
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Join a vibrant community of believers passionate about encountering God, growing in faith, and making a difference.
+            Join a vibrant community of believers passionate about encountering God, growing in faith, and making a lasting global impact.
           </motion.p>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Link to="/about" className="px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-md font-medium transition-all shadow-lg hover:shadow-primary/50 w-full sm:w-auto">
-              Plan a Visit
-            </Link>
-            <Link to="/sermons" className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-md font-medium transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
-              <Play size={18} />
-              Watch Latest Sermon
-            </Link>
+            <Button size="lg" asChild className="px-10 py-8 text-lg font-bold rounded-xl shadow-2xl shadow-primary/40 group">
+              <Link to="/about" className="flex items-center gap-2">
+                Plan a Visit <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild className="px-10 py-8 text-lg font-bold rounded-xl backdrop-blur-md bg-white/5 border-white/20 text-white hover:bg-white/10 transition-all gap-3">
+              <Link to="/live">
+                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center animate-pulse">
+                  <Play size={14} fill="white" className="ml-0.5" />
+                </div>
+                Watch Live
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>
 
       {/* Quick Info Bar */}
-      <section className="bg-secondary text-secondary-foreground py-8 relative z-30 -mt-10 mx-4 md:mx-auto max-w-5xl rounded-xl shadow-xl flex flex-col md:flex-row justify-around items-center gap-6 px-8">
-        <div className="text-center md:text-left flex items-center gap-4">
-          <Calendar className="w-10 h-10 text-primary" />
-          <div>
-            <h3 className="font-heading font-bold text-lg">Sunday Services</h3>
-            <p className="text-sm opacity-90">9:00 AM & 11:30 AM</p>
+      <div className="container mx-auto px-4 relative z-30 -mt-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="bg-card/80 backdrop-blur-2xl border border-white/10 text-card-foreground py-10 rounded-3xl shadow-2xl flex flex-col md:flex-row justify-around items-center gap-8 px-12"
+        >
+          <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
+            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+              <Calendar size={28} />
+            </div>
+            <div>
+              <h3 className="font-heading font-black text-xl uppercase tracking-tight">Sunday Services</h3>
+              <p className="text-muted-foreground font-bold">9:00 AM & 11:30 AM</p>
+            </div>
           </div>
-        </div>
-        <div className="w-px h-12 bg-black/10 hidden md:block" />
-        <div className="text-center md:text-left flex items-center gap-4">
-          <Users className="w-10 h-10 text-primary" />
-          <div>
-            <h3 className="font-heading font-bold text-lg">Midweek Service</h3>
-            <p className="text-sm opacity-90">Wednesdays at 6:30 PM</p>
+          
+          <div className="w-px h-16 bg-border hidden md:block" />
+          
+          <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
+            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+              <Users size={28} />
+            </div>
+            <div>
+              <h3 className="font-heading font-black text-xl uppercase tracking-tight">Midweek Service</h3>
+              <p className="text-muted-foreground font-bold">Wednesdays at 6:30 PM</p>
+            </div>
           </div>
-        </div>
-      </section>
+
+          <div className="w-px h-16 bg-border hidden md:block" />
+
+          <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
+            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+              <Heart size={28} />
+            </div>
+            <div>
+              <h3 className="font-heading font-black text-xl uppercase tracking-tight">Give Online</h3>
+              <p className="text-muted-foreground font-bold">Support the mission</p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
 
       {/* About Preview */}
-      <section className="py-24 bg-background">
+      <section className="py-32 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-primary/5 rounded-full blur-[120px] -z-10" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-secondary/5 rounded-full blur-[120px] -z-10" />
+        
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl rounded-[2rem] z-0" />
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/30 to-secondary/30 blur-3xl rounded-[3rem] opacity-50" />
               <img 
                 src="https://images.unsplash.com/photo-1543616991-75a2c125ff5b?q=80&w=1000&auto=format&fit=crop" 
                 alt="Worship service" 
-                className="relative z-10 rounded-2xl shadow-2xl object-cover h-[500px] w-full"
+                className="relative z-10 rounded-[2.5rem] shadow-2xl object-cover h-[600px] w-full border-4 border-white/10"
               />
-            </div>
-            <div>
-              <div className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6">
-                Welcome Home
+              <div className="absolute -bottom-10 -right-10 bg-white dark:bg-black p-8 rounded-3xl shadow-2xl z-20 hidden md:block border border-white/10 backdrop-blur-xl">
+                 <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white">
+                      <Zap size={24} />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-black font-heading">10k+</p>
+                      <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Lives Impacted</p>
+                    </div>
+                 </div>
+                 <p className="text-sm font-medium text-muted-foreground max-w-[200px]">Spreading the message of hope across the globe.</p>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">A Place to Belong,<br/> A Place to Grow</h2>
-              <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                At Jesus Envoys Church, we believe that everyone has a unique purpose. Whether you're exploring faith for the first time or looking for a church community to call home, there's a place for you here.
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-black uppercase tracking-widest mb-8">
+                <Shield size={14} /> Our Mission
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold font-heading mb-8 leading-[1.1]">A Place to <span className="text-primary underline decoration-primary/30 underline-offset-8">Belong</span>, A Place to Grow</h2>
+              <p className="text-muted-foreground text-xl mb-10 leading-relaxed font-light">
+                At Jesus Envoys Church, we believe that everyone has a unique purpose. Whether you're exploring faith for the first time or looking for a church community to call home, there's a space prepared specifically for you.
               </p>
-              <ul className="space-y-4 mb-8">
+              <div className="space-y-6 mb-12">
                 {[
-                  "Passionate Worship & Authentic Community",
-                  "Bible-based, practical teachings",
-                  "Programs for children and youth of all ages"
+                  { title: "Passionate Worship", desc: "Encountering the presence of God together." },
+                  { title: "Authentic Community", desc: "Finding friends who feel like family." },
+                  { title: "Practical Teaching", desc: "Bible-based wisdom for everyday life." }
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                    <Heart className="text-primary w-5 h-5 shrink-0" />
-                    {item}
-                  </li>
+                  <div key={i} className="flex items-start gap-4 p-4 hover:bg-muted/50 rounded-2xl transition-colors group">
+                    <div className="w-8 h-8 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0 mt-1 group-hover:bg-primary group-hover:text-white transition-colors">
+                      <Heart size={18} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{item.title}</h4>
+                      <p className="text-muted-foreground text-sm">{item.desc}</p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-              <Link to="/about" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
-                Read Our Story <ArrowRight size={20} />
-              </Link>
-            </div>
+              </div>
+              <Button size="lg" variant="link" asChild className="px-0 text-primary text-lg font-black group h-auto">
+                <Link to="/about" className="flex items-center gap-3">
+                  DISCOVER MORE <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Add placeholders for Latest Sermons, Events, etc. */}
-      
+      {/* Featured Sections (Latest Blog/Sermon) */}
+      <section className="py-32 bg-muted/30">
+        <div className="container mx-auto px-4">
+           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+              <div className="max-w-2xl">
+                 <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">Latest Updates</h2>
+                 <p className="text-muted-foreground text-lg">Stay connected with our latest messages and stories of faith.</p>
+              </div>
+              <Button variant="outline" asChild className="rounded-full px-8">
+                 <Link to="/blog">View All Posts</Link>
+              </Button>
+           </div>
+
+           <div className="grid md:grid-cols-3 gap-8">
+              {[1, 2, 3].map((item) => (
+                <motion.div
+                  key={item}
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Card className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-3xl">
+                    <div className="h-52 bg-gray-200 relative">
+                      <img 
+                        src={`https://images.unsplash.com/photo-${1500000000000 + item}?q=80&w=600&auto=format&fit=crop`} 
+                        alt="Blog post" 
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
+                        New Post
+                      </div>
+                    </div>
+                    <CardContent className="p-8">
+                      <p className="text-primary text-xs font-black uppercase tracking-widest mb-4">Spiritual Growth</p>
+                      <h3 className="text-xl font-bold font-heading mb-4 line-clamp-2">The Power of Persistent Prayer and Faith</h3>
+                      <p className="text-muted-foreground text-sm mb-6 line-clamp-3">Discover how to maintain your faith when the answers seem delayed and how to press into God's promises.</p>
+                      <Button variant="link" className="p-0 text-primary font-bold h-auto">READ MORE</Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+           </div>
+        </div>
+      </section>
     </div>
   );
 }
