@@ -67,7 +67,7 @@ export default function Sermons() {
             <div className="flex flex-col lg:flex-row">
               <div className="lg:w-3/5 relative overflow-hidden h-[400px] lg:h-auto">
                 <img 
-                  src="https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?q=80&w=1200&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=1200&auto=format&fit=crop" 
                   alt="Featured Sermon" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
                 />

@@ -8,27 +8,20 @@ export default function Home() {
   return (
     <div className="w-full overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[90vh] md:h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24">
         {/* Background Image & Overlay with Parallax effect simulation */}
         <motion.div 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 10, ease: "easeOut" }}
           className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?q=80&w=2000&auto=format&fit=crop)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=2000&auto=format&fit=crop)' }}
         />
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/70 via-black/40 to-background" />
         
         {/* Hero Content */}
         <div className="container mx-auto px-4 md:px-6 relative z-20 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary-foreground text-xs font-bold uppercase tracking-widest mb-8"
-          >
-            <Star size={14} className="fill-current" /> Welcome to Jesus Envoys Church
-          </motion.div>
+
           
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -36,7 +29,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading text-white mb-8 tracking-tighter"
           >
-            Empowered to <span className="text-primary italic">Transform</span><br/> Your World
+            Empowered to <span className="text-primary">Transform</span><br/> Your World
           </motion.h1>
           
           <motion.p 
@@ -52,7 +45,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20"
           >
             <Button size="lg" asChild className="px-10 py-8 text-lg font-bold rounded-xl shadow-2xl shadow-primary/40 group">
               <Link to="/about" className="flex items-center gap-2">
@@ -68,52 +61,50 @@ export default function Home() {
               </Link>
             </Button>
           </motion.div>
+
+          {/* Quick Info Bar - Moved here */}
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="bg-card/80 backdrop-blur-2xl border border-white/10 text-card-foreground py-10 rounded-3xl shadow-2xl flex flex-col md:flex-row justify-around items-center gap-8 px-12 max-w-5xl mx-auto mt-12"
+          >
+            <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <Calendar size={28} />
+              </div>
+              <div>
+                <h3 className="font-heading font-black text-xl uppercase tracking-tight">Sunday Services</h3>
+                <p className="text-muted-foreground font-bold">9:00 AM & 11:30 AM</p>
+              </div>
+            </div>
+            
+            <div className="w-px h-16 bg-border hidden md:block" />
+            
+            <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <Users size={28} />
+              </div>
+              <div>
+                <h3 className="font-heading font-black text-xl uppercase tracking-tight">Midweek Service</h3>
+                <p className="text-muted-foreground font-bold">Wednesdays at 6:30 PM</p>
+              </div>
+            </div>
+
+            <div className="w-px h-16 bg-border hidden md:block" />
+
+            <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <Heart size={28} />
+              </div>
+              <div>
+                <h3 className="font-heading font-black text-xl uppercase tracking-tight">Give Online</h3>
+                <p className="text-muted-foreground font-bold">Support the mission</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
-
-      {/* Quick Info Bar */}
-      <div className="container mx-auto px-4 relative z-30 -mt-16">
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="bg-card/80 backdrop-blur-2xl border border-white/10 text-card-foreground py-10 rounded-3xl shadow-2xl flex flex-col md:flex-row justify-around items-center gap-8 px-12"
-        >
-          <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
-            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-              <Calendar size={28} />
-            </div>
-            <div>
-              <h3 className="font-heading font-black text-xl uppercase tracking-tight">Sunday Services</h3>
-              <p className="text-muted-foreground font-bold">9:00 AM & 11:30 AM</p>
-            </div>
-          </div>
-          
-          <div className="w-px h-16 bg-border hidden md:block" />
-          
-          <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
-            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-              <Users size={28} />
-            </div>
-            <div>
-              <h3 className="font-heading font-black text-xl uppercase tracking-tight">Midweek Service</h3>
-              <p className="text-muted-foreground font-bold">Wednesdays at 6:30 PM</p>
-            </div>
-          </div>
-
-          <div className="w-px h-16 bg-border hidden md:block" />
-
-          <div className="text-center md:text-left flex items-center gap-5 group cursor-default">
-            <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-              <Heart size={28} />
-            </div>
-            <div>
-              <h3 className="font-heading font-black text-xl uppercase tracking-tight">Give Online</h3>
-              <p className="text-muted-foreground font-bold">Support the mission</p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
 
       {/* About Preview */}
       <section className="py-32 bg-background relative overflow-hidden">
@@ -200,34 +191,40 @@ export default function Home() {
               </Button>
            </div>
 
-           <div className="grid md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((item) => (
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { id: 1, tag: "Faith", title: "Walking in Divine Purpose", desc: "Discover how to identify and walk in the specific calling God has for your life this season.", img: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800&auto=format&fit=crop" },
+                { id: 2, tag: "Prayer", title: "The Power of Secret Prayer", desc: "Learning the art of intimacy with God in the secret place and seeing the public results of his grace.", img: "https://images.unsplash.com/photo-1515023115689-589c33041d3c?q=80&w=800&auto=format&fit=crop" },
+                { id: 3, tag: "Growth", title: "Deepening Your Roots", desc: "Practical steps to ensure your spiritual foundation is strong enough to weather any storm life brings.", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" }
+              ].map((item) => (
                 <motion.div
-                  key={item}
+                  key={item.id}
                   whileHover={{ y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-3xl">
-                    <div className="h-52 bg-gray-200 relative">
+                  <Card className="h-full overflow-hidden border-none shadow-xl hover:shadow-2xl transition-all duration-500 rounded-3xl group">
+                    <div className="h-56 bg-gray-200 relative overflow-hidden">
                       <img 
-                        src={`https://images.unsplash.com/photo-${1500000000000 + item}?q=80&w=600&auto=format&fit=crop`} 
-                        alt="Blog post" 
-                        className="w-full h-full object-cover"
+                        src={item.img} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
-                        New Post
+                      <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg shadow-primary/20">
+                        {item.tag}
                       </div>
                     </div>
                     <CardContent className="p-8">
-                      <p className="text-primary text-xs font-black uppercase tracking-widest mb-4">Spiritual Growth</p>
-                      <h3 className="text-xl font-bold font-heading mb-4 line-clamp-2">The Power of Persistent Prayer and Faith</h3>
-                      <p className="text-muted-foreground text-sm mb-6 line-clamp-3">Discover how to maintain your faith when the answers seem delayed and how to press into God's promises.</p>
-                      <Button variant="link" className="p-0 text-primary font-bold h-auto">READ MORE</Button>
+                      <p className="text-primary text-[10px] font-black uppercase tracking-widest mb-3">Spiritual Insights</p>
+                      <h3 className="text-xl font-bold font-heading mb-4 line-clamp-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm mb-6 line-clamp-3 leading-relaxed">{item.desc}</p>
+                      <Button variant="link" className="p-0 text-primary font-bold h-auto hover:no-underline group/btn">
+                        READ MORE <ArrowRight size={14} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
-           </div>
+            </div>
         </div>
       </section>
     </div>

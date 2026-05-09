@@ -23,7 +23,7 @@ export default function Blog() {
       category: "Community",
       author: "Jane Smith",
       date: "Oct 18, 2023",
-      image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: 3,

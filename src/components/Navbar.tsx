@@ -8,12 +8,8 @@ import { Button } from './ui/Button';
 const links = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Sermons', path: '/sermons' },
   { name: 'Events', path: '/events' },
   { name: 'Ministries', path: '/ministries' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Live', path: '/live' },
-  { name: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
@@ -32,74 +28,78 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-500',
+        'fixed top-0 w-full z-50 transition-all duration-500 border-b',
         isScrolled
-          ? 'bg-white/80 dark:bg-black/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.05)] py-3 border-b border-primary/5'
-          : 'bg-transparent py-6'
+          ? 'bg-background/80 backdrop-blur-xl py-3 border-border/50 shadow-xl'
+          : 'bg-black/20 backdrop-blur-sm py-5 border-white/5'
       )}
     >
-      <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-xl shadow-primary/20 group-hover:scale-110 transition-all duration-500 ring-4 ring-primary/10">
-            JE
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-start gap-8 md:gap-16">
+        <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+          <div className="relative w-12 h-12 md:w-14 md:h-14 bg-white rounded-xl md:rounded-2xl flex items-center justify-center p-1.5 shadow-lg group-hover:scale-105 transition-transform duration-300 ring-1 ring-black/5 overflow-hidden">
+            <img 
+              src="/logo.png" 
+              alt="Jesus Envoys Church Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <div className="flex flex-col">
             <span className={cn(
-              "font-black text-xl md:text-2xl leading-none tracking-tighter uppercase transition-colors",
-              isScrolled ? "text-foreground" : "text-white drop-shadow-lg"
+              "font-black text-xl md:text-2xl leading-none tracking-tighter uppercase transition-colors whitespace-nowrap",
+              isScrolled ? "text-foreground" : "text-white"
             )}>
-              Jesus <span className="text-primary italic">Envoys</span>
-            </span>
-            <span className={cn(
-              "text-[10px] font-black uppercase tracking-[0.3em] transition-colors",
-              isScrolled ? "text-muted-foreground" : "text-white/60"
-            )}>
-              Church Collective
+              Jesus Envoys <span className="text-primary">Church</span>
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-2 ml-auto">
           {links.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               className={cn(
-                'relative px-4 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300 rounded-full hover:bg-primary/5',
-                isScrolled ? 'text-foreground' : 'text-white/90 hover:text-white',
-                location.pathname === link.path && 'text-primary bg-primary/5'
+                'relative px-5 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300 rounded-xl',
+                isScrolled 
+                  ? 'text-foreground/70 hover:text-primary hover:bg-primary/5' 
+                  : 'text-white/80 hover:text-white hover:bg-white/10',
+                location.pathname === link.path && (
+                  isScrolled 
+                    ? 'text-primary bg-primary/10' 
+                    : 'text-white bg-white/20 shadow-lg shadow-black/20'
+                )
               )}
             >
               {link.name}
               {location.pathname === link.path && (
                 <motion.div 
                    layoutId="nav-pill"
-                   className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full"
+                   className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-primary rounded-full shadow-[0_0_8px_rgba(234,23,73,0.6)]"
                 />
               )}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4 ml-4">
            <Link to="/portal">
               <Button variant="ghost" size="icon" className={cn(
-                "w-12 h-12 rounded-2xl",
+                "w-10 h-10 rounded-xl",
                 isScrolled ? "text-foreground" : "text-white hover:bg-white/10"
               )}>
-                 <User size={20} />
+                 <User size={18} />
               </Button>
            </Link>
-           <Button className="rounded-2xl px-8 font-black uppercase tracking-widest shadow-xl shadow-primary/20 gap-2">
-              <Heart size={16} fill="currentColor" /> Give
+           <Button className="rounded-xl px-6 h-11 text-xs font-bold uppercase tracking-wider shadow-lg shadow-primary/20 gap-2">
+              <Heart size={14} fill="currentColor" /> Give
            </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
           className={cn(
-            "lg:hidden w-12 h-12 rounded-2xl flex items-center justify-center transition-all",
+            "lg:hidden ml-auto w-12 h-12 rounded-2xl flex items-center justify-center transition-all",
             isScrolled ? "text-foreground bg-primary/5" : "text-white bg-white/10 backdrop-blur-md"
           )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
