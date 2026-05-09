@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Calendar, Users, Heart, Shield, Zap, Star } from 'lucide-react';
+import { ArrowRight, Play, Calendar, Users, Heart, Shield, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Card, CardContent } from '../components/ui/Card';
