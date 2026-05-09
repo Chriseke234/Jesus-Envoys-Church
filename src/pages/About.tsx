@@ -6,14 +6,14 @@ export default function About() {
       {/* Hero Section */}
       <section className="bg-primary/10 py-20 text-center px-4">
         <div className="container mx-auto max-w-4xl">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold font-heading text-primary mb-6"
           >
             Our Story & Vision
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -59,11 +59,11 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">Meet Our Leadership</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Dedicated to serving you and guiding our church family.</p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-10">
             {[
-              { name: "Pastor John Doe", role: "Lead Pastor", img: "https://i.pravatar.cc/300?img=11" },
-              { name: "Pastor Jane Smith", role: "Worship Pastor", img: "https://i.pravatar.cc/300?img=5" },
+              { name: "Pastor Promise Eke", role: "Lead Pastor", img: "/pastor-promise.png" },
+              { name: "Pastor Grace Eke", role: "Worship Pastor", img: "https://i.pravatar.cc/300?img=5" },
               { name: "Michael Johnson", role: "Youth Pastor", img: "https://i.pravatar.cc/300?img=8" },
             ].map((leader, i) => (
               <div key={i} className="text-center">

@@ -8,7 +8,7 @@ export default function Blog() {
       title: "Finding Peace in the Midst of the Storm",
       excerpt: "When life throws unexpected challenges our way, where do we turn for comfort and stability? Discover biblical principles for finding true peace.",
       category: "Faith",
-      author: "Pastor John Doe",
+      author: "Pastor Promise Eke",
       date: "Oct 24, 2023",
       image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=600&auto=format&fit=crop"
     },

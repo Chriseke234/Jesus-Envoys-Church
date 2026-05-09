@@ -133,7 +133,7 @@ export default function MembersPortal() {
                       </div>
                       <div>
                         <h4 className="font-bold leading-tight mb-1">The Power of Faith</h4>
-                        <p className="text-xs text-muted-foreground">Oct 22, 2023 • Pastor John</p>
+                        <p className="text-xs text-muted-foreground">Oct 22, 2023 • Pastor Promise</p>
                       </div>
                     </div>
                   ))}
@@ -202,7 +202,7 @@ export default function MembersPortal() {
                 <label className="text-sm font-medium">Full Name</label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 text-muted-foreground" size={18} />
-                  <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} required className="w-full pl-10 pr-4 py-2 border border-border rounded-md bg-background focus:outline-none focus:border-primary transition-colors" placeholder="John Doe" />
+                  <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} required className="w-full pl-10 pr-4 py-2 border border-border rounded-md bg-background focus:outline-none focus:border-primary transition-colors" placeholder="Promise Eke" />
                 </div>
               </div>
             )}
